@@ -28,7 +28,7 @@ function Home(){
     };
     const fetchProducts=async()=>{
         try{
-            const url='http://localhost:8080/products';
+            const url='https://mern-authentication-ivory-eta.vercel.app/products';
             const response=await fetch(url,{
                 headers:{
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
