@@ -31,10 +31,12 @@ function Home(){
             const url='https://mern-authentication-ivory-eta.vercel.app/products';
             const response=await fetch(url,{
                 headers:{
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                    'Content-Type':'application/json'
                 }
             });
-            if(response.status==401){
+            if(response.status===401 || response.status===403){
+                handleError('Session Expired,please Login again');
                 navigate('/login');
                 return;
             }
