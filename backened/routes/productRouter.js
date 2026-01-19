@@ -1,7 +1,7 @@
 const ensureAuthenticated = require('../Middleware/authmi');
 const express = require('express');
 const router=express.Router();
-router.get('/products',ensureAuthenticated,(req,resp)=>{
+router.get('/',ensureAuthenticated,(req,resp)=>{
     resp.status(200).json([
         {
             name:"Mobile",
