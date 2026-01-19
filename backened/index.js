@@ -33,7 +33,7 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const connectDB = require('./db');
+const connectDB = require('./Models/db');
 
 const Auth = require('./routes/auth');
 const productRouter = require('./routes/productRouter');
