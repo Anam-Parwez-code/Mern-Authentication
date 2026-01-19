@@ -32,11 +32,11 @@ function Home(){
             const response=await fetch(url,{
                 headers:{
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,
-                    'Content-Type':'application/json'
+                    
                 }
             });
-            if(response.status===401 || response.status===403){
-                handleError('Session Expired,please Login again');
+            if(response.status===401){
+                
                 navigate('/login');
                 return;
             }
