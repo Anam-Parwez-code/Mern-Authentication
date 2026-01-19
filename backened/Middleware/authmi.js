@@ -5,12 +5,12 @@ const ensureAuthenticated = (req,resp,next)=>{
         return resp.status(403)
         .json({message:'Unauthorized,JWT token is required'});
     }
-    const token=auth.split("")[1];
+    const token=auth.split(" ")[1];
     if(!token){
         return resp.status(403).json({message:"Token missing"});
     }
     try{
-const decoded = jwt.verify(auth,process.env.JWT_SECRET);
+const decoded = jwt.verify(token,process.env.JWT_SECRET);
 req.user = decoded;
 next();
     }catch(err){
